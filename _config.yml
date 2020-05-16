@@ -1,18 +1,25 @@
 collections:
-  authors:
+  pieces:
+    output: true
+    sort_by: date
+  tags:
     output: true
 
 defaults:
   - scope:
       path: ""
-      type: "authors"
+      type: "pieces"
     values:
-      layout: "author"
+      layout: "piece"
   - scope:
       path: ""
-      type: "posts"
+      type: "tags"
     values:
-      layout: "post"
+      layout: "gallery"
+  - scope:
+      path: "gallery.html"
+    values:
+      layout: "gallery"
   - scope: 
       path: ""
     values:

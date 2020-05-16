@@ -2,4 +2,11 @@
 title: Home
 id: home
 ---
-<h1>Hello, world!</h1>
+<ul>
+    {% assign rev_pieces = site.pieces | reverse %}
+    {% for piece in rev_pieces limit:3 %}
+        <li>
+            <img src="/assets/images/{{ piece.source }}" style="display:inline-block;width:320px">
+        </li>
+    {% endfor %}
+</ul>

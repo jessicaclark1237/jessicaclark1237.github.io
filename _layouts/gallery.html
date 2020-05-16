@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% if page.tag == nil or page.tag == "" %}
+    <h1>Latest Posts</h1>
+{% else %}
+    <h1>#{{ page.tag }}</h1>
+{% endif %}
+
+<ul>
+    {% if page.tag == nil or page.tag == "" %}
+        {% assign filtered_pieces = site.pieces %}
+    {% else %}
+        {% assign filtered_pieces = site.pieces | where_exp: "piece", "piece.tags contains page.tag" %}
+    {% endif %}
+    {% for piece in filtered_pieces reversed %}
+        <li>
+            <a href="{{ piece.url }}">
+                <img src="/assets/images/{{ piece.source }}" style="display:inline-block;width:320px">
+                <h2>{{ piece.title }}</h2>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
