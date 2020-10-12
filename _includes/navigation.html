@@ -1,15 +1,37 @@
 <nav>
     {% assign count = 0 %}
     {% for item in site.data.navigation %}
-        <a href="{{ item.link }}" 
-            {% if page.id == item.id %}
-                {% assign count = count | plus: 1 %}
-                class="current"
-            {% endif %}>
-            {{ item.name }}
-        </a>
+        <div class="nav-item">
+            <div>
+                <a href="{{ item.link | relative_url }}" 
+                    {% if page.id == item.id %}
+                        {% assign count = count | plus: 1 %}
+                        id="current"
+                    {% endif %}>
+                    <div class="button">
+                        {{ item.name }}
+                    </div>
+                </a>
+                {% if page.id == item.id %}
+                    <div id="current-button">
+                        <img src="{{ 'assets/images/circle.png' | relative_url }}">
+                    </div>
+                {% else %}
+                    <div id="non-current-button">
+                        <img src="{{ 'assets/images/circle.png' | relative_url }}">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     {% endfor %}
     {% if count == 0 %}
-        <a href="/gallery.html">(back)</a>
+        <div class="nav-back nav-item">
+            <a href="{{ 'gallery.html' | relative_url }}">
+                <div class="button" >
+                    <img id="back" src="{{ 'assets/images/circle.png' | relative_url }}">
+                    <i>back</i>
+                </div>
+            </a>
+        </div>
     {% endif %}
 </nav>

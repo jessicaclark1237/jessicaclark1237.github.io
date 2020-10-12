@@ -1,22 +1,39 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
-<p>{{ page.date | date_to_string }}</p>
+<div class="piece-details-container">
+    <div class="piece-full">
+        <img class="piece-full-img" src="{{ 'assets/images/' | append:  page.source | relative_url }}">
+    </div>
+    <div class="details-wrapper">
+        <div class="details">
 
-<img src="/assets/images/{{ page.source }}">
+            <div class="details-title">{{ page.title }}</div>
+            <div class="title-bullet">
+                <img class="title-bullet-img" src="{{ 'assets/images/circle.png' | relative_url }}">
+            </div>
 
-<ul>
-    {% for tag in page.tags %}
-        <li>
-            {% assign found_tag = site.tags | where: "tag", tag | first %}
-            {% if found_tag != nil %}
-                <a href="/tags/{{ tag }}.html">{{ found_tag.tag }}</a>
-            {% else %}
-                {{ tag }}
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
+            <div class="details-date">{{ page.date | date: "%-d %B %Y" }}</div>
+            <div class="details-material">{{ page.materials }}</div>
 
-{{ content }}
+            <div class="tags">
+                {% for tag in page.tags %}
+                    <div class="tag">
+                        {% assign found_tag = site.tags | where: "tag", tag | first %}
+                        {% if found_tag != nil %}
+                            <a class="tag-link" href="{{ 'tags/' | append: tag | append: '.html' | relative_url }}">#{{ found_tag.tag }}</a>
+                        {% else %}
+                            <span class="tag-non-link">#{{ tag }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        
+            
+            {{ content }}
+
+        </div>
+        
+    </div>
+</div>
+

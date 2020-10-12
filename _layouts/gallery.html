@@ -1,24 +1,35 @@
 ---
 layout: default
 ---
-{% if page.tag == nil or page.tag == "" %}
-    <h1>Latest Posts</h1>
-{% else %}
-    <h1>#{{ page.tag }}</h1>
-{% endif %}
+<div class="content-wrapper">
+    {% if page.tag == nil or page.tag == "" %}
 
-<ul>
+    {% else %}
+        <div class="filter-title">{{ page.tag }}</div>
+        <div class="filter-hr"><hr></div>
+    {% endif %}
+
     {% if page.tag == nil or page.tag == "" %}
         {% assign filtered_pieces = site.pieces %}
     {% else %}
         {% assign filtered_pieces = site.pieces | where_exp: "piece", "piece.tags contains page.tag" %}
     {% endif %}
     {% for piece in filtered_pieces reversed %}
-        <li>
-            <a href="{{ piece.url }}">
-                <img src="/assets/images/{{ piece.source }}" style="display:inline-block;width:320px">
-                <h2>{{ piece.title }}</h2>
+        <div class="piece">
+            <a href="{{ piece.url | relative_url }}">
+                <div>
+                    <img class="thumb" src="{{ 'assets/images/' | append: piece.source | relative_url }}">
+                </div>
+                <div class="piece-label">
+                    <div class="circle-label">
+                        <img class="circle-label-img" src="{{ 'assets/images/circle.png' | relative_url }}">
+                    </div>
+                    <div class="text-label">
+                        <div class="name">{{ piece.title }}</div>
+                        <div class="date">{{ piece.date | date: "%-d %B %Y" }}</div>
+                    </div>
+                </div>
             </a>
-        </li>
+        </div>
     {% endfor %}
-</ul>
+</div>

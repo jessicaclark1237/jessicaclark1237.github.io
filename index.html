@@ -2,11 +2,34 @@
 title: Home
 id: home
 ---
-<ul>
-    {% assign rev_pieces = site.pieces | reverse %}
-    {% for piece in rev_pieces limit:3 %}
-        <li>
-            <img src="/assets/images/{{ piece.source }}" style="display:inline-block;width:320px">
-        </li>
-    {% endfor %}
-</ul>
+<div class="home-wrapper">
+    <div class="marquee">
+        {% assign rev_pieces = site.pieces | reverse %}
+        {% for piece in rev_pieces limit:3 %}
+            <div>
+                <img src="{{ 'assets/images/' | append: piece.source | relative_url }}">
+            </div>
+        {% endfor %}
+    </div>
+    <div class="see-more-wrapper">
+        <div class="see-more">
+            <a href="{{ 'gallery.html' | relative_url }}">
+                <div>
+                    <div class="see-more-circle"><img id="see-more-circle-img" src="{{ 'assets/images/circle.png' | relative_url }}"></div>
+                    <br>
+                    <div class="see-more-label">See More</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="welcome-label">
+        <div class="art-from-label">Art from</div>
+        <div class="jessica-label">
+            <div class="jessica-label-wrapper">
+                Jessica
+                <div class="name-bullet"><img class="name-bullet-img" src="{{ 'assets/images/circle.png | relative_url }}"></div>
+                Clark
+            </div>
+        </div>
+    </div>
+</div>

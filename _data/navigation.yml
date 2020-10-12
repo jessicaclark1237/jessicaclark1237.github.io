@@ -2,8 +2,8 @@
   link: /
   id: home
 - name: Gallery
-  link: /gallery.html
+  link: gallery.html
   id: gallery
 - name: About Me
-  link: /about.html
+  link: about.html
   id: about
