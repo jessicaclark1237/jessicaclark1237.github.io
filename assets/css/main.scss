@@ -70,7 +70,7 @@ body {
 
 .content-wrapper {
     text-align: center;
-    padding: 64px 0;
+    padding: 64px 0 0 0;
     width: 100%;
 }
 
@@ -393,9 +393,22 @@ a {
 }
 
 .copyright-gallery {
-    margin-top: 64px;
+    margin: 64px auto 16px auto;
 }
 
 .copyright-text {
     opacity: 0.4;
+}
+
+.copyright-bullet {
+    display: block;
+    text-align: center;
+}
+
+.copyright-bullet-img {
+    height: 8px;
+    width: 8px;
+    display: block;
+    margin: 16px auto;
+    opacity: 0.1;
 }
