@@ -382,3 +382,20 @@ a {
     opacity: 0.4;
     margin-bottom: 64px;
 }
+
+.copyright {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 8px;
+    z-index: 5;
+}
+
+.copyright-gallery {
+    margin-top: 64px;
+}
+
+.copyright-text {
+    opacity: 0.4;
+}
