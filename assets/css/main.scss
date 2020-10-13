@@ -362,8 +362,11 @@ a {
     max-height: 100%;
 }
 
+// TODO JOE for some reason text resizes automagically on mobile for the following 3
 .about-tagline {
     padding: 12px 0;
+    width: 29%;
+    margin: auto;
 }
 
 .about-content {
@@ -375,4 +378,5 @@ a {
 .about-contact {
     padding: 12px 0;
     opacity: 0.4;
+    margin-bottom: 64px;
 }
