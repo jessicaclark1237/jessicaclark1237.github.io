@@ -1,8 +1,8 @@
 ---
 id: piece
-title: Plant Fairy
+title: Growth
 source: fairy-color.jpg
-materials: "Watercolor and pen"
+materials: "Watercolor"
 tags:
     - watercolor
 ---
